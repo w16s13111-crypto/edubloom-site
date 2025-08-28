@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>مولّد حزمة ZIP — EduBloom Handbook</title>
+<meta name="color-scheme" content="light dark">
+<style>
+:root{--bg:#0b1220;--card:#0f172a;--ring:#334155;--text:#e5e7eb;--muted:#9ca3af;--brand:#22c55e}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.7}
+.wrap{max-width:920px;margin:0 auto;padding:20px}
+.card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px}
+h1{margin:0 0 8px;font-size:22px}
+.btn{display:inline-block;border:0;border-radius:12px;padding:12px 16px;font-weight:900;cursor:pointer;background:var(--brand);color:#052e16}
+pre{white-space:pre-wrap;background:#0b1220;border:1px solid var(--ring);border-radius:12px;padding:12px}
+.small{font-size:.9rem;color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+ul{margin:0 0 0 1rem}
+.success{color:#86efac}
+a{color:#93c5fd}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>تنزيل حزمة موقع EduBloom كـ ZIP</h1>
+    <p>عند الضغط على الزر سيتم إنشاء ملف <strong>edubloom-handbook.zip</strong> يحوي:</p>
+    <ul>
+      <li>index.html — صفحة ويب جاهزة برابط المعاينة وأزرار نسخ/مشاركة.</li>
+      <li>index-solutions.html — نسخة ثابتة تعرض “كتيّب حلول” نموذجية للطباعة.</li>
+      <li>assets/handbook.pdf — مكان فارغ لملف PDF إن رغبت.</li>
+      <li>README.txt — خطوات الرفع السريع (Netlify Drop / Vercel).</li>
+      <li>manifest.webmanifest + icon.svg</li>
+    </ul>
+    <div class="row" style="margin-top:10px">
+      <button id="build" class="btn">تنزيل الحزمة ZIP</button>
+      <span id="status" class="small"></span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3 style="margin:0 0 6px">بعد التنزيل</h3>
+    <ol style="margin:0 0 0 1rem">
+      <li>ارفع ملف edubloom-handbook.zip إلى <a href="https://app.netlify.com/drop" target="_blank" rel="noopener">Netlify Drop</a>.</li>
+      <li>تحصل فورًا على رابط مثل: https://اسم-موقعك.netlify.app (يمكن تغييره من الإعدادات).</li>
+      <li>إن أردت زر “تحميل PDF”، ضع ملفك داخل assets باسم handbook.pdf ثم أعد الرفع.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+/*! مولد ZIP مبسط */
+!function(){function e(e){return new TextEncoder().encode(e)}function t(e){var t=new Uint8Array(e.length);for(var n=0;n<e.length;n++)t[n]=e.charCodeAt(n);return t}function n(e){var t=new Uint8Array(e.length);for(var n=0;n<e.length;n++)t[n]=e.charCodeAt(n);return t}function r(){this.files=[]}r.prototype.file=function(r,i){this.files.push({name:r,content:i instanceof Uint8Array?i:e(i)})},r.prototype.generateAsync=function(){var r=new Uint8Array(0);function i(e){var t=new Uint8Array(r.length+e.length);return t.set(r),t.set(e,r.length),r=t,t}function a(e){return n(String.fromCharCode(e&255,e>>8&255,e>>16&255,e>>24&255))}var o=[],f=0;this.files.forEach(function(e){var t=e.name,n=e.content,c=n.length,u=n.length,l=0,s=0,d=0,p=0,h=0,v=0,g=0,m=0,w=0,y=0,b=0,x=n.length,k=n.length,C=n.length,S=n.length,E="PK\u0003\u0004";i(t= t),i(n);});r=new Uint8Array(0);var l=[],c=0,u=0;function s(e){i(t("PK\u0003\u0004")),i(t("\n\u0000")),i(t("\0\0")),i(t("\0\0")),i(t("\0\0\0\0"));i(a(e.content.length));i(a(e.content.length));i(n(String.fromCharCode(e.name.length&255,e.name.length>>8&255)));i(t("\0\0"));i(t("\0\0"));i(t("\0\0"));i(t("\0\0"));i(t(e.name));i(e.content)}this.files.forEach(function(e){s(e)});var d=0,p=[];r=new Uint8Array(0);this.files.forEach(function(e){var o="PK\u0001\u0002";i(t(o)),i(t("\x14\x00")),i(t("\n\u0000")),i(t("\0\0")),i(t("\0\0")),i(t("\0\0\0\0")),i(a(e.content.length)),i(a(e.content.length)),i(n("\0\0\0\0")),i(n(String.fromCharCode(e.name.length&255,e.name.length>>8&255))),i(t("\0\0")),i(t("\0\0")),i(t("\0\0")),i(t("\0\0")),i(t("\0\0\x00\x00")),i(t(e.name));d+=46+e.name.length});i(t("PK\u0005\u0006")),i(t("\0\0")),i(t("\0\0")),i(n(String.fromCharCode(this.files.length&255,this.files.length>>8&255,this.files.length&255,this.files.length>>8&255))),i(a(0)),i(a(r.length)),i(t("\0\0"));var h=new Blob([r],{type:"application/zip"});return Promise.resolve(h)};window.SimpleZip=r}();
+
+/* index.html — صفحة ويب جاهزة برابط معاينة Poe */
+const INDEX_HTML = `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Poe Preview — صفحة ويب</title>
+<meta name="description" content="صفحة ويب بسيطة تعكس معاينة Poe مع زر مشاركة وروابط سريعة.">
+<meta name="color-scheme" content="light dark">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{
+  --bg:#0b1220; --card:#0f172a; --muted:#94a3b8; --text:#e5e7eb;
+  --brand:#22c55e; --ring:#334155; --shadow:0 10px 30px rgba(0,0,0,.25);
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.container{max-width:900px;margin:0 auto;padding:20px}
+.header{
+  background:linear-gradient(135deg,#111827 0%,#0f172a 70%);
+  border-bottom:1px solid var(--ring);
+}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.badge{
+  width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:#111827;color:#22c55e;font-weight:900;border:1px solid var(--ring);box-shadow:var(--shadow)
+}
+.brand h1{margin:0;font-size:20px}
+.hero{padding:18px 0}
+.hero-title{margin:0 0 6px;font-size:24px;font-weight:900}
+.hero-sub{margin:0;color:var(--muted)}
+.card{
+  background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);
+  padding:16px;margin-top:16px;box-shadow:var(--shadow)
+}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  border:0;border-radius:12px;padding:12px 14px;font-weight:800;cursor:pointer;
+  background:var(--brand);color:#06240f;text-decoration:none;display:inline-flex;align-items:center;gap:8px
+}
+.btn.secondary{background:#0b1220;color:var(--text);border:1px solid var(--ring")}
+.note{color:var(--muted);font-size:.95rem}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:720px){.grid{grid-template-columns:1.1fr .9fr}}
+.kv{min-height:180px;border-radius:14px;background:
+  radial-gradient(100% 100% at 20% 0%,rgba(59,130,246,.25),transparent 40%),
+  radial-gradient(100% 140% at 100% 0%,rgba(34,197,94,.18),transparent 45%),
+  linear-gradient(135deg,#0e1a2a 0%,#0b1420 100%);
+  border:1px solid var(--ring);display:grid;place-items:center
+}
+.kv h2{margin:0;font-size:18px;color:#c7d2fe}
+.list{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px;border-radius:12px;background:#0b1220;border:1px solid var(--ring)}
+.item .title{font-weight:800}
+.footer{margin:24px 0 16px;text-align:center;color:var(--muted);font-size:.9rem}
+.link{color:#93c5fd;text-decoration:none}
+.toast{position:fixed;inset-inline:12px;bottom:12px;background:#14532d;color:#ecfdf5;padding:10px 14px;border-radius:12px;display:none}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="container brand">
+    <div class="logo">
+      <div class="badge" aria-label="Poe">P</div>
+      <h1>Poe Preview | صفحة ويب</h1>
+    </div>
+    <a class="btn secondary" href="https://poe.com/preview/c59HfcjuZTmB75EHhJz0" target="_blank" rel="noopener">فتح المعاينة الأصلية</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <p class="hero-title">Poe Preview</p>
+    <p class="hero-sub">واجهة خفيفة تعرض نموذجًا مبسّطًا من صفحة المعاينة مع زر مشاركة.</p>
+  </section>
+
+  <section class="card">
+    <div class="grid">
+      <div class="kv">
+        <h2>Made with Poe</h2>
+      </div>
+      <div>
+        <ul class="list">
+          <li class="item">
+            <span class="title">Share</span>
+            <div class="row">
+              <a class="btn" id="copyBtn">نسخ الرابط</a>
+              <a class="btn secondary" id="shareBtn">مشاركة…</a>
+            </div>
+          </li>
+          <li class="item">
+            <span class="title">رابط المعاينة</span>
+            <a class="link" href="https://poe.com/preview/c59HfcjuZTmB75EHhJz0" target="_blank" rel="noopener">https://poe.com/preview/c59HfcjuZTmB75EHhJz0</a>
+          </li>
+        </ul>
+        <p class="note" style="margin-top:10px">
+          تلميح: زر “مشاركة…” يستخدم Web Share API إن كان مدعومًا على جهازك، وإلا سيظهر نسخ تلقائي.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 style="margin:0 0 8px">كيفية الاستخدام</h3>
+    <ol style="margin:0 0 0 1rem">
+      <li>هذا الملف هو index.html عند النشر.</li>
+      <li>ارفع الحزمة كاملة إلى Netlify Drop لتحصل على رابط مباشر.</li>
+      <li>يمكنك تعديل العنوان/الوصف لاحقًا.</li>
+    </ol>
+  </section>
+</main>
+
+<div class="toast" id="toast">تم نسخ الرابط إلى الحافظة</div>
+
+<footer class="footer">
+  © <span id="year"></span> صفحة معاينة — مستوحاة من Poe Preview
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const url = 'https://poe.com/preview/c59HfcjuZTmB75EHhJz0';
+const toast = document.getElementById('toast');
+function showToast(msg){ toast.textContent = msg; toast.style.display='block'; setTimeout(()=>toast.style.display='none', 2200); }
+document.getElementById('copyBtn').addEventListener('click', async ()=>{
+  try{ await navigator.clipboard.writeText(url); showToast('تم نسخ الرابط إلى الحافظة'); }
+  catch(e){ const ta=document.createElement('textarea'); ta.value=url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('تم النسخ (طريقة احتياطية)'); }
+});
+document.getElementById('shareBtn').addEventListener('click', async ()=>{
+  if(navigator.share){ try{ await navigator.share({ title:'Poe Preview', text:'جرّب هذه المعاينة', url }); }catch(e){} }
+  else{ await navigator.clipboard.writeText(url); showToast('جهازك لا يدعم Web Share — تم نسخ الرابط بدلًا من ذلك'); }
+});
+</script>
+</body>
+</html>`;
+
+/* index-solutions.html — نموذج كتيّب حلول ثابت */
+const INDEX_SOLUTIONS = `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EduBloom | نسخة الحلول الثابتة</title>
+<meta name="description" content="نسخة ثابتة من الكتيّب مع الحلول ظاهرة.">
+<style>
+body{margin:0;background:#f8fafc;color:#0f172a;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.container{max-width:1000px;margin:0 auto;padding:16px}
+.card{background:#ffffff;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.08);padding:16px;margin:12px 0}
+h1{margin:0 0 10px}
+.answer{background:#ecfdf5;border:1px solid #86efac;color:#065f46;padding:8px;border-radius:10px;margin-top:6px}
+.small{color:#475569}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h1>English Grammar Handbook — نسخة الحلول</h1>
+    <p class="small">هذه نسخة ثابتة للطباعة، تعرض إجابات نموذجية كعينة.</p>
+  </div>
+
+  <div class="card">
+    <h2>Unit 1 — MCQ</h2>
+    <ol>
+      <li>did</li>
+      <li>have been</li>
+      <li>since</li>
+      <li>haven’t finished</li>
+      <li>graduated</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Unit 1 — Correct the mistakes</h2>
+    <ol>
+      <li>I saw him yesterday.</li>
+      <li>We haven’t eaten for three hours.</li>
+      <li>She has written the email.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Unit 1 — Short quiz (نماذج مقبولة)</h2>
+    <ul>
+      <li>If I had slept earlier, I would be energetic now.</li>
+      <li>We are going to visit the museum tomorrow.</li>
+      <li>I have lived here since 2020.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Unit 2 — Transform</h2>
+    <ol>
+      <li>He said that he was tired.</li>
+      <li>He asked where I lived.</li>
+      <li>He told me not to be late.</li>
+      <li>The report was written yesterday.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Unit 3 — Quick practice</h2>
+    <ol>
+      <li>If you save money, you will buy a new laptop.</li>
+      <li>If I were you, I would talk to the teacher.</li>
+      <li>If they had studied, they would have passed.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Unit 4 — Linking practice</h2>
+    <ol>
+      <li>Although it was raining, we played football.</li>
+      <li>We were tired; however, we finished the task.</li>
+      <li>We left early so that we could catch the bus.</li>
+    </ol>
+  </div>
+</div>
+</body>
+</html>`;
+
+/* README */
+const README = `EduBloom Handbook — حزمة جاهزة للنشر
+1) Netlify Drop:
+   - افتح https://app.netlify.com/drop
+   - اسحب وأسقط ملف edubloom-handbook.zip
+   - ستحصل على رابط مباشر فورًا.
+2) تغيير الاسم:
+   - بعد إنشاء الموقع: Site settings > Domain management > Edit site name
+3) ملف PDF:
+   - ضع ملف PDF باسم assets/handbook.pdf لكي يعمل زر "تحميل PDF" إن أضفته في صفحاتك.
+`;
+
+/* manifest و أيقونة */
+const MANIFEST = `{
+  "name": "EduBloom Handbook",
+  "short_name": "EduBloom",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#22c55e",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}`;
+const ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#22c55e"/><text x="50%" y="55%" text-anchor="middle" font-family="Segoe UI,Arial" font-weight="900" font-size="26" fill="#04210f">EB</text></svg>`;
+
+/* إنشاء ZIP عند النقر */
+document.getElementById('build').addEventListener('click', async ()=>{
+  const status = document.getElementById('status');
+  status.textContent = 'جارٍ تجهيز الملفات…';
+
+  const zip = new SimpleZip();
+  zip.file('index.html', INDEX_HTML);
+  zip.file('index-solutions.html', INDEX_SOLUTIONS);
+  zip.file('README.txt', README);
+  zip.file('manifest.webmanifest', MANIFEST);
+  zip.file('icon.svg', ICON);
+  zip.file('assets/handbook.pdf', new Uint8Array()); // عنصر فارغ
+
+  const blob = await zip.generateAsync();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'edubloom-handbook.zip';
+  a.click();
+  setTimeout(()=> URL.revokeObjectURL(url), 1500);
+  status.innerHTML = '<span class="success">تم إنشاء الحزمة. إذا لم يبدأ التنزيل آليًا، تحقق من إعدادات المتصفح.</span>';
+});
+</script>
+</body>
+</html>
